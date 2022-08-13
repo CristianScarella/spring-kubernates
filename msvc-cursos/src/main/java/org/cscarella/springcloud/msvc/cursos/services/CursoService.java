@@ -47,6 +47,12 @@ public class CursoService implements ICursoService{
     }
 
     @Override
+    @Transactional
+    public void eliminarCursoUsuarioPorId(Long id) {
+        cursoRepository.eliminarCursoUsuario(id);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public Optional<Curso> porIdConUsuarios(Long id) {
         Optional<Curso> o = cursoRepository.findById(id);

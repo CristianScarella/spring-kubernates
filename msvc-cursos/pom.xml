@@ -6,7 +6,6 @@
 		<groupId>org.cscarella.springcloud.msvc</groupId>
 		<artifactId>curso-kubernates</artifactId>
 		<version>1.0-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.cscarella.springcloud.msvc.cursos</groupId>
 	<artifactId>msvc-cursos</artifactId>

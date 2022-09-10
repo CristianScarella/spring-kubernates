@@ -12,6 +12,8 @@ public interface ICursoService {
     Optional<Curso> porId(Long id);
     Curso guardar(Curso curso);
     void eliminar(Long id);
+    void eliminarCursoUsuarioPorId(Long id);
+    Optional<Curso> porIdConUsuarios(Long id);
     Optional<Usuario> asignarUsuario(Usuario usuario, Long idCurso); //ASIGNA USUARIO EXISTENTE EN MSVC USUARIO
     Optional<Usuario> crearUsuario(Usuario usuario, Long idCurso); //USUARIO NO EXISTENTE EN MSVC USUARIO
     Optional<Usuario> eliminarUsuario(Usuario usuario, Long idCurso); //ELIMINA USUARIO DEL CURSO

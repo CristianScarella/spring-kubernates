@@ -1,5 +1,6 @@
 package org.cscarella.springcloud.msvc.usuarios.service;
 
+import org.cscarella.springcloud.msvc.usuarios.client.CursoClienteRest;
 import org.cscarella.springcloud.msvc.usuarios.models.entity.Usuario;
 import org.cscarella.springcloud.msvc.usuarios.repositories.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ import java.util.Optional;
 public class UsuarioServiceImpl implements IUsuarioService{
     @Autowired
     private IUsuarioRepository repository;
+
+    @Autowired
+    private CursoClienteRest client;
 
     @Override
     @Transactional(readOnly = true)
@@ -36,9 +40,11 @@ public class UsuarioServiceImpl implements IUsuarioService{
     @Transactional
     public void eliminar(Long id) {
         repository.deleteById(id);
+        client.eliminarCursoUsuarioPorId(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Usuario> listarPorIds(Iterable<Long> ids) {
         return (List<Usuario>) repository.findAllById(ids);
     }
